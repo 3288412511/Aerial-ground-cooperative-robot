@@ -43,7 +43,7 @@ docker run -ti --rm -v /datasets:/datasets opendronemap/odm --project-path /data
 |-- odm_orthophoto/
     |-- odm_orthophoto.tif          
 
-## 可以使用以下免费开源软件打开ODM生成的文件：
+## 使用以下软件打开ODM生成的文件：
  * .tif (GeoTIFF): [QGIS](http://www.qgis.org/)
  * .laz (Compressed LAS): [CloudCompare](https://www.cloudcompare.org/)
  * .obj (Wavefront OBJ), .ply (Stanford Triangle Format): [MeshLab](http://www.meshlab.net/)
