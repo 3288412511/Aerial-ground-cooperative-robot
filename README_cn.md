@@ -10,6 +10,7 @@
 - ROS 2 Humble
 - Qt5
 - RViz2 / rviz_common
+- docker
 
 ## 依赖安装
 
