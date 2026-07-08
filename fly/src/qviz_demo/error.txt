@@ -1,0 +1,21 @@
+CMake Error at /usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake:28 (find_package):
+  Could not find a package configuration file provided by "Qt5Multimedia"
+  with any of the following names:
+
+    Qt5MultimediaConfig.cmake
+    qt5multimedia-config.cmake
+
+  Add the installation prefix of "Qt5Multimedia" to CMAKE_PREFIX_PATH or set
+  "Qt5Multimedia_DIR" to a directory containing one of the above files.  If
+  "Qt5Multimedia" provides a separate development package or SDK, be sure it
+  has been installed.
+Call Stack (most recent call first):
+  qviz_demo/CMakeLists.txt:32 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/ngc/ngc_work/build/CMakeFiles/CMakeOutput.log".
+See also "/home/ngc/ngc_work/build/CMakeFiles/CMakeError.log".
+make: *** [Makefile:1342：cmake_check_build_system] 错误 1
+Invoking "make cmake_check_build_system" failed
+

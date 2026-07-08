@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>mapManager/CancelManage.svg</file>
+        <file>mapManager/OpenMap.svg</file>
+    </qresource>
+</RCC>

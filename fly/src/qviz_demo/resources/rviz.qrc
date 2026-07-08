@@ -1,0 +1,55 @@
+<RCC>
+    <qresource prefix="/">
+        <file>rViz/Axes.png</file>
+        <file>rViz/Camera.png</file>
+        <file>rViz/DepthCloud.png</file>
+        <file>rViz/Displays.svg</file>
+        <file>rViz/Effort.png</file>
+        <file>rViz/FluidPressure.png</file>
+        <file>rViz/FocusCamera.svg</file>
+        <file>rViz/Grid.png</file>
+        <file>rViz/GridCells.png</file>
+        <file>rViz/Group.png</file>
+        <file>rViz/Help.svg</file>
+        <file>rViz/Illuminance.png</file>
+        <file>rViz/Image.png</file>
+        <file>rViz/Interact.png</file>
+        <file>rViz/InteractiveMarkers.png</file>
+        <file>rViz/LaserScan.png</file>
+        <file>rViz/Map.png</file>
+        <file>rViz/Marker.png</file>
+        <file>rViz/MarkerArray.png</file>
+        <file>rViz/Measure.svg</file>
+        <file>rViz/MoveCamera.png</file>
+        <file>rViz/Odometry.png</file>
+        <file>rViz/options.png</file>
+        <file>rViz/package.png</file>
+        <file>rViz/Path.png</file>
+        <file>rViz/PointCloud.png</file>
+        <file>rViz/PointCloud2.png</file>
+        <file>rViz/PointStamped.png</file>
+        <file>rViz/Polygon.png</file>
+        <file>rViz/Pose.png</file>
+        <file>rViz/PoseArray.png</file>
+        <file>rViz/PoseWithCovariance.png</file>
+        <file>rViz/PublishPoint.svg</file>
+        <file>rViz/Range.png</file>
+        <file>rViz/RelativeHumidity.png</file>
+        <file>rViz/RobotJoint.png</file>
+        <file>rViz/RobotLink.png</file>
+        <file>rViz/RobotLinkNoGeom.png</file>
+        <file>rViz/RobotModel.png</file>
+        <file>rViz/Select.png</file>
+        <file>rViz/Selection.png</file>
+        <file>rViz/SetGoal.png</file>
+        <file>rViz/SetGoal(2).png</file>
+        <file>rViz/SetInitialPose.png</file>
+        <file>rViz/Temperature.png</file>
+        <file>rViz/TF.png</file>
+        <file>rViz/Time.svg</file>
+        <file>rViz/Tool Properties.png</file>
+        <file>rViz/Views.svg</file>
+        <file>rViz/warning.png</file>
+        <file>rViz/WrenchStamped.png</file>
+    </qresource>
+</RCC>

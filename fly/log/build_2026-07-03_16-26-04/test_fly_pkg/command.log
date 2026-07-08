@@ -1,0 +1,6 @@
+Invoking command in '/home/sunrise/workspace/fly/build/test_fly_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunrise/workspace/fly/src/test_fly_pkg -DCMAKE_INSTALL_PREFIX=/home/sunrise/workspace/fly/install/test_fly_pkg
+Invoked command in '/home/sunrise/workspace/fly/build/test_fly_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunrise/workspace/fly/src/test_fly_pkg -DCMAKE_INSTALL_PREFIX=/home/sunrise/workspace/fly/install/test_fly_pkg
+Invoking command in '/home/sunrise/workspace/fly/build/test_fly_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunrise/workspace/fly/build/test_fly_pkg -- -j8 -l8
+Invoked command in '/home/sunrise/workspace/fly/build/test_fly_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunrise/workspace/fly/build/test_fly_pkg -- -j8 -l8
+Invoking command in '/home/sunrise/workspace/fly/build/test_fly_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunrise/workspace/fly/build/test_fly_pkg
+Invoked command in '/home/sunrise/workspace/fly/build/test_fly_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunrise/workspace/fly/build/test_fly_pkg

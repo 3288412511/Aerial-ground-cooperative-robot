@@ -1,0 +1,17 @@
+/home/sunrise/workspace/fly/install/test_fly_pkg/lib/test_fly_pkg/test_node
+/home/sunrise/workspace/fly/install/test_fly_pkg/lib/test_fly_pkg/mavros_offboard_target
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/ament_index/resource_index/package_run_dependencies/test_fly_pkg
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/ament_index/resource_index/parent_prefix_path/test_fly_pkg
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/environment/ament_prefix_path.sh
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/environment/ament_prefix_path.dsv
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/environment/path.sh
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/environment/path.dsv
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/local_setup.bash
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/local_setup.sh
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/local_setup.zsh
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/local_setup.dsv
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/package.dsv
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/ament_index/resource_index/packages/test_fly_pkg
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/cmake/test_fly_pkgConfig.cmake
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/cmake/test_fly_pkgConfig-version.cmake
+/home/sunrise/workspace/fly/install/test_fly_pkg/share/test_fly_pkg/package.xml

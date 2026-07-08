@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aerial Satellite Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
+  <style>
+    html, body, #map {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #d8e0d2;
+    }
+    .leaflet-container {
+      font: 12px/1.4 sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+  <script>
+    const map = L.map('map', { zoomControl: true }).setView([22.5333, 113.9304], 17);
+    L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      {
+        maxZoom: 20,
+        attribution: 'Tiles &copy; Esri'
+      }
+    ).addTo(map);
+
+    const drawnItems = new L.FeatureGroup().addTo(map);
+    let areaLayer = null;
+    let routeLayer = null;
+    let photoLayer = null;
+
+    function clearLayer(layer) {
+      if (layer) {
+        map.removeLayer(layer);
+      }
+      return null;
+    }
+
+    function clearPhotoMarkers() {
+      photoLayer = clearLayer(photoLayer);
+    }
+
+    function resetAerialPlanning() {
+      clearPhotoMarkers();
+      routeLayer = clearLayer(routeLayer);
+      if (areaLayer) {
+        drawnItems.removeLayer(areaLayer);
+        areaLayer = null;
+      }
+      map.closePopup();
+      return '已清空拍照范围、面状航线和拍照点，请重新绘制。';
+    }
+
+    function startAreaSelection() {
+      resetAerialPlanning();
+      const drawer = new L.Draw.Polygon(map, {
+        allowIntersection: false,
+        showArea: true,
+        maxPoints: 4,
+        shapeOptions: { color: '#e0573f', weight: 3, fillOpacity: 0.2 }
+      });
+      map.once(L.Draw.Event.CREATED, function (event) {
+        const vertices = event.layer.getLatLngs()[0] || [];
+        if (vertices.length !== 4) {
+          map.closePopup();
+          return;
+        }
+        areaLayer = event.layer;
+        drawnItems.addLayer(areaLayer);
+      });
+      drawer.enable();
+      return '已进入拍照范围选择模式，请依次点击四个点绘制四边形范围。';
+    }
+
+    function clipValue(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function getAreaVertices() {
+      if (!areaLayer) {
+        return [];
+      }
+      const latLngGroups = areaLayer.getLatLngs();
+      if (!Array.isArray(latLngGroups) || latLngGroups.length === 0) {
+        return [];
+      }
+      let vertices = latLngGroups[0].slice();
+      if (vertices.length > 1) {
+        const first = vertices[0];
+        const last = vertices[vertices.length - 1];
+        if (first.lat === last.lat && first.lng === last.lng) {
+          vertices = vertices.slice(0, -1);
+        }
+      }
+      return vertices;
+    }
+
+    function latLngToLocal(point, originLat, originLng, cosLat) {
+      return {
+        x: (point.lng - originLng) * 111320.0 * cosLat,
+        y: (point.lat - originLat) * 111320.0
+      };
+    }
+
+    function localToLatLng(point, originLat, originLng, cosLat) {
+      return [
+        originLat + point.y / 111320.0,
+        originLng + point.x / (111320.0 * cosLat)
+      ];
+    }
+
+    function dotProduct(a, b) {
+      return a.x * b.x + a.y * b.y;
+    }
+
+    function vectorLength(vector) {
+      return Math.sqrt(vector.x * vector.x + vector.y * vector.y);
+    }
+
+    function normalizeVector(vector) {
+      const length = vectorLength(vector);
+      if (length < 1e-6) {
+        return null;
+      }
+      return { x: vector.x / length, y: vector.y / length };
+    }
+
+    function subtractPoint(a, b) {
+      return { x: a.x - b.x, y: a.y - b.y };
+    }
+
+    function addScaled(base, direction, scale) {
+      return {
+        x: base.x + direction.x * scale,
+        y: base.y + direction.y * scale
+      };
+    }
+
+    function perpendicularVector(vector) {
+      return { x: -vector.y, y: vector.x };
+    }
+
+    function edgeIntersectionsAtOffset(projectedVertices, offset) {
+      const intersections = [];
+      const epsilon = 1e-6;
+
+      for (let i = 0; i < projectedVertices.length; i += 1) {
+        const a = projectedVertices[i];
+        const b = projectedVertices[(i + 1) % projectedVertices.length];
+        const minV = Math.min(a.v, b.v);
+        const maxV = Math.max(a.v, b.v);
+
+        if (offset < minV - epsilon || offset > maxV + epsilon) {
+          continue;
+        }
+        if (Math.abs(a.v - b.v) < epsilon) {
+          continue;
+        }
+
+        const ratio = (offset - a.v) / (b.v - a.v);
+        if (ratio < -epsilon || ratio > 1.0 + epsilon) {
+          continue;
+        }
+        intersections.push(a.u + (b.u - a.u) * ratio);
+      }
+
+      intersections.sort(function (left, right) { return left - right; });
+
+      const deduped = [];
+      intersections.forEach(function (value) {
+        if (deduped.length === 0 || Math.abs(deduped[deduped.length - 1] - value) > 1e-4) {
+          deduped.push(value);
+        }
+      });
+      return deduped;
+    }
+
+    function buildQuadrilateralFrame() {
+      const vertices = getAreaVertices();
+      if (vertices.length !== 4) {
+        return null;
+      }
+
+      const center = areaLayer.getBounds().getCenter();
+      const originLat = center.lat;
+      const originLng = center.lng;
+      const cosLat = Math.max(Math.cos(originLat * Math.PI / 180.0), 0.2);
+      const localVertices = vertices.map(function (vertex) {
+        return latLngToLocal(vertex, originLat, originLng, cosLat);
+      });
+
+      let longestEdge = null;
+      let longestLength = 0.0;
+
+      for (let i = 0; i < localVertices.length; i += 1) {
+        const currentEdge = subtractPoint(
+          localVertices[(i + 1) % localVertices.length],
+          localVertices[i]
+        );
+        const currentLength = vectorLength(currentEdge);
+        if (currentLength > longestLength) {
+          longestLength = currentLength;
+          longestEdge = currentEdge;
+        }
+      }
+
+      if (!longestEdge || longestLength < 1e-3) {
+        return null;
+      }
+
+      const longDir = normalizeVector(longestEdge);
+      const shortDir = normalizeVector(perpendicularVector(longDir));
+      if (!longDir || !shortDir) {
+        return null;
+      }
+
+      let minLong = Infinity;
+      let maxLong = -Infinity;
+      let minShort = Infinity;
+      let maxShort = -Infinity;
+
+      const projectedVertices = localVertices.map(function (point) {
+        const longValue = dotProduct(point, longDir);
+        const shortValue = dotProduct(point, shortDir);
+        minLong = Math.min(minLong, longValue);
+        maxLong = Math.max(maxLong, longValue);
+        minShort = Math.min(minShort, shortValue);
+        maxShort = Math.max(maxShort, shortValue);
+        return { u: longValue, v: shortValue };
+      });
+
+      return {
+        originLat: originLat,
+        originLng: originLng,
+        cosLat: cosLat,
+        longDir: longDir,
+        shortDir: shortDir,
+        minLong: minLong,
+        maxLong: maxLong,
+        minShort: minShort,
+        maxShort: maxShort,
+        projectedVertices: projectedVertices
+      };
+    }
+
+    function generateRoutePoints(spacingMeters) {
+      const frame = buildQuadrilateralFrame();
+      if (!frame) {
+        return [];
+      }
+
+      const width = frame.maxShort - frame.minShort;
+      const lineCount = Math.max(2, Math.floor(width / Math.max(spacingMeters, 1.0)) + 1);
+      const actualSpacing = lineCount > 1 ? width / (lineCount - 1) : 0.0;
+      const points = [];
+
+      for (let row = 0; row < lineCount; row += 1) {
+        const shortOffset = frame.minShort + actualSpacing * row;
+        const intersections = edgeIntersectionsAtOffset(frame.projectedVertices, shortOffset);
+        if (intersections.length < 2) {
+          continue;
+        }
+
+        const lineStart = addScaled(
+          addScaled({ x: 0, y: 0 }, frame.longDir, intersections[0]),
+          frame.shortDir,
+          shortOffset
+        );
+        const lineEnd = addScaled(
+          addScaled({ x: 0, y: 0 }, frame.longDir, intersections[intersections.length - 1]),
+          frame.shortDir,
+          shortOffset
+        );
+
+        if (row % 2 === 0) {
+          points.push(localToLatLng(lineStart, frame.originLat, frame.originLng, frame.cosLat));
+          points.push(localToLatLng(lineEnd, frame.originLat, frame.originLng, frame.cosLat));
+        } else {
+          points.push(localToLatLng(lineEnd, frame.originLat, frame.originLng, frame.cosLat));
+          points.push(localToLatLng(lineStart, frame.originLat, frame.originLng, frame.cosLat));
+        }
+      }
+
+      if (points.length < 2) {
+        return [];
+      }
+
+      return points;
+    }
+
+    function setPolygonRoute(spacingMeters) {
+      clearPhotoMarkers();
+      if (!areaLayer) {
+        return '请先选择拍照范围。';
+      }
+      routeLayer = clearLayer(routeLayer);
+      const routePoints = generateRoutePoints(spacingMeters);
+      if (routePoints.length < 2) {
+        return '请绘制有效的四点四边形范围后再生成面状航线。';
+      }
+      routeLayer = L.polyline(routePoints, {
+        color: '#1e63ff',
+        weight: 3,
+        dashArray: '10,8'
+      }).addTo(map);
+      return '已根据四点四边形范围生成面状航线，航线会限制在图形内部。';
+    }
+
+    function interpolatePoint(a, b, ratio) {
+      return [
+        a[0] + (b[0] - a[0]) * ratio,
+        a[1] + (b[1] - a[1]) * ratio
+      ];
+    }
+
+    function segmentLengthMeters(a, b) {
+      const p1 = L.latLng(a[0], a[1]);
+      const p2 = L.latLng(b[0], b[1]);
+      return p1.distanceTo(p2);
+    }
+
+    function startPhotoMission(photoIntervalMeters, routeSpacingMeters, flightHeightMeters, overlapRate) {
+      if (!areaLayer) {
+        return '请先选择拍照范围。';
+      }
+      if (!routeLayer) {
+        setPolygonRoute(routeSpacingMeters);
+      }
+
+      clearPhotoMarkers();
+      photoLayer = L.layerGroup().addTo(map);
+      const routePoints = routeLayer.getLatLngs().map(function (p) { return [p.lat, p.lng]; });
+      let photoCount = 0;
+
+      for (let i = 0; i < routePoints.length - 1; i += 1) {
+        const a = routePoints[i];
+        const b = routePoints[i + 1];
+        const length = segmentLengthMeters(a, b);
+        const shots = Math.max(1, Math.floor(length / photoIntervalMeters));
+        for (let j = 0; j <= shots; j += 1) {
+          const ratio = clipValue(j / shots, 0.0, 1.0);
+          const pt = interpolatePoint(a, b, ratio);
+          L.circleMarker(pt, {
+            radius: 4,
+            color: '#ffd24a',
+            weight: 1,
+            fillColor: '#ff7b00',
+            fillOpacity: 0.9
+          }).addTo(photoLayer);
+          photoCount += 1;
+        }
+      }
+
+      return '开始拍照任务: 预计拍照点 ' + photoCount +
+        ' 个, 拍照间隔 ' + photoIntervalMeters.toFixed(1) +
+        ' m, 航线间距 ' + routeSpacingMeters.toFixed(1) +
+        ' m, 飞行高度 ' + flightHeightMeters.toFixed(1) +
+        ' m, 重叠率 ' + overlapRate + '%.';
+    }
+  </script>
+</body>
+</html>

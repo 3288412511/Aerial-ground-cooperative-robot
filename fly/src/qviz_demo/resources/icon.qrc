@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/folder(1).svg</file>
+        <file>icon/folder(2).svg</file>
+        <file>icon/robot.svg</file>
+        <file>icon/SHELL.svg</file>
+        <file>icon/Map.png</file>
+        <file>icon/MapManager.svg</file>
+        <file>icon/Log.svg</file>
+        <file>icon/OpenFile.svg</file>
+        <file>icon/TaskManager.svg</file>
+        <file>icon/warning.svg</file>
+        <file>icon/prompt.svg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>aerial_satellite_map.html</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>taskManagement/AutoDrive.svg</file>
+        <file>taskManagement/generate_task.svg</file>
+        <file>taskManagement/task_manager.svg</file>
+        <file>taskManagement/delete.svg</file>
+        <file>taskManagement/expansion.svg</file>
+        <file>taskManagement/PutAway.svg</file>
+        <file>taskManagement/robot.svg</file>
+        <file>taskManagement/SaveTask.svg</file>
+        <file>taskManagement/cancel.svg</file>
+        <file>taskManagement/revocation.svg</file>
+        <file>taskManagement/send.svg</file>
+    </qresource>
+</RCC>

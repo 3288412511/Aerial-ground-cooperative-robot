@@ -1,0 +1,197 @@
+[0.000000] (-) TimerEvent: {}
+[0.001118] (livox_ros_driver2) JobQueued: {'identifier': 'livox_ros_driver2', 'dependencies': OrderedDict()}
+[0.002198] (livox_ros_driver2) JobStarted: {'identifier': 'livox_ros_driver2'}
+[0.038726] (livox_ros_driver2) JobProgress: {'identifier': 'livox_ros_driver2', 'progress': 'cmake'}
+[0.042597] (livox_ros_driver2) Command: {'cmd': ['/usr/bin/cmake', '/home/sunrise/workspace/ws_livox/src/livox_ros_driver2', '-DROS_EDITION=ROS2', '-DDISTRO_ROS=humble', '-DCMAKE_INSTALL_PREFIX=/home/sunrise/workspace/ws_livox/install/livox_ros_driver2'], 'cwd': '/home/sunrise/workspace/ws_livox/build/livox_ros_driver2', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '2887'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise/workspace/ws_livox/src/livox_ros_driver2'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('WINDOWID', '56623107'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', 'ROS2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/2395,unix/ubuntu:/tmp/.ICE-unix/2395'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXO5k69J/agent.2881'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/workspace/ws_livox/build/livox_ros_driver2'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099034] (-) TimerEvent: {}
+[0.199964] (-) TimerEvent: {}
+[0.300987] (-) TimerEvent: {}
+[0.374537] (livox_ros_driver2) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.2.0\n'}
+[0.401184] (-) TimerEvent: {}
+[0.502142] (-) TimerEvent: {}
+[0.603096] (-) TimerEvent: {}
+[0.703712] (livox_ros_driver2) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.2.0\n'}
+[0.704456] (-) TimerEvent: {}
+[0.738201] (livox_ros_driver2) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.804730] (-) TimerEvent: {}
+[0.905720] (-) TimerEvent: {}
+[1.006699] (-) TimerEvent: {}
+[1.107643] (-) TimerEvent: {}
+[1.142454] (livox_ros_driver2) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.199336] (livox_ros_driver2) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.200576] (livox_ros_driver2) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.203207] (livox_ros_driver2) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.207854] (-) TimerEvent: {}
+[1.218458] (livox_ros_driver2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.308088] (-) TimerEvent: {}
+[1.409081] (-) TimerEvent: {}
+[1.510041] (-) TimerEvent: {}
+[1.610937] (-) TimerEvent: {}
+[1.647970] (livox_ros_driver2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.706038] (livox_ros_driver2) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.707205] (livox_ros_driver2) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.709530] (livox_ros_driver2) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.711003] (-) TimerEvent: {}
+[1.713204] (livox_ros_driver2) StdoutLine: {'line': b'-- livox_ros_driver2 version: 1.2.6\n'}
+[1.717332] (livox_ros_driver2) StdoutLine: {'line': b'-- Found ament_cmake_auto: 1.3.14 (/opt/ros/humble/share/ament_cmake_auto/cmake)\n'}
+[1.811204] (-) TimerEvent: {}
+[1.912033] (-) TimerEvent: {}
+[2.012796] (-) TimerEvent: {}
+[2.113588] (-) TimerEvent: {}
+[2.214465] (-) TimerEvent: {}
+[2.315360] (-) TimerEvent: {}
+[2.416232] (-) TimerEvent: {}
+[2.517157] (-) TimerEvent: {}
+[2.618053] (-) TimerEvent: {}
+[2.718833] (-) TimerEvent: {}
+[2.819631] (-) TimerEvent: {}
+[2.920469] (-) TimerEvent: {}
+[3.021345] (-) TimerEvent: {}
+[3.122243] (-) TimerEvent: {}
+[3.223221] (-) TimerEvent: {}
+[3.324180] (-) TimerEvent: {}
+[3.425065] (-) TimerEvent: {}
+[3.525905] (-) TimerEvent: {}
+[3.626702] (-) TimerEvent: {}
+[3.727470] (-) TimerEvent: {}
+[3.828219] (-) TimerEvent: {}
+[3.928947] (-) TimerEvent: {}
+[4.029750] (-) TimerEvent: {}
+[4.127012] (livox_ros_driver2) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[4.129872] (-) TimerEvent: {}
+[4.230609] (-) TimerEvent: {}
+[4.331401] (-) TimerEvent: {}
+[4.432203] (-) TimerEvent: {}
+[4.533006] (-) TimerEvent: {}
+[4.633888] (-) TimerEvent: {}
+[4.734647] (-) TimerEvent: {}
+[4.835426] (-) TimerEvent: {}
+[4.936215] (-) TimerEvent: {}
+[5.037008] (-) TimerEvent: {}
+[5.084264] (livox_ros_driver2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.119889] (livox_ros_driver2) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[5.137194] (-) TimerEvent: {}
+[5.238020] (-) TimerEvent: {}
+[5.313306] (livox_ros_driver2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.338192] (-) TimerEvent: {}
+[5.439013] (-) TimerEvent: {}
+[5.539860] (-) TimerEvent: {}
+[5.640694] (-) TimerEvent: {}
+[5.741604] (-) TimerEvent: {}
+[5.764376] (livox_ros_driver2) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[5.775044] (livox_ros_driver2) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[5.841793] (-) TimerEvent: {}
+[5.942641] (-) TimerEvent: {}
+[6.043514] (-) TimerEvent: {}
+[6.144475] (-) TimerEvent: {}
+[6.183769] (livox_ros_driver2) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[6.244680] (-) TimerEvent: {}
+[6.313814] (livox_ros_driver2) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[6.344867] (-) TimerEvent: {}
+[6.445732] (-) TimerEvent: {}
+[6.502809] (livox_ros_driver2) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[6.539950] (livox_ros_driver2) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[6.545846] (-) TimerEvent: {}
+[6.646630] (-) TimerEvent: {}
+[6.747595] (-) TimerEvent: {}
+[6.848539] (-) TimerEvent: {}
+[6.943789] (livox_ros_driver2) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[6.944911] (livox_ros_driver2) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[6.948628] (-) TimerEvent: {}
+[7.049431] (-) TimerEvent: {}
+[7.150382] (-) TimerEvent: {}
+[7.251362] (-) TimerEvent: {}
+[7.352323] (-) TimerEvent: {}
+[7.358449] (livox_ros_driver2) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[7.364114] (livox_ros_driver2) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[7.452517] (-) TimerEvent: {}
+[7.553661] (-) TimerEvent: {}
+[7.654521] (-) TimerEvent: {}
+[7.755360] (-) TimerEvent: {}
+[7.856200] (-) TimerEvent: {}
+[7.957052] (-) TimerEvent: {}
+[8.057937] (-) TimerEvent: {}
+[8.158811] (-) TimerEvent: {}
+[8.213139] (livox_ros_driver2) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[8.259007] (-) TimerEvent: {}
+[8.269563] (livox_ros_driver2) StdoutLine: {'line': b'--   Found eigen3, version 3.4.0\n'}
+[8.359224] (-) TimerEvent: {}
+[8.434023] (livox_ros_driver2) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[8.441795] (livox_ros_driver2) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[8.459426] (-) TimerEvent: {}
+[8.560297] (-) TimerEvent: {}
+[8.579038] (livox_ros_driver2) StdoutLine: {'line': b"-- Checking for module 'flann'\n"}
+[8.642728] (livox_ros_driver2) StdoutLine: {'line': b'--   Found flann, version 1.9.1\n'}
+[8.660474] (-) TimerEvent: {}
+[8.761442] (-) TimerEvent: {}
+[8.842054] (livox_ros_driver2) StdoutLine: {'line': b'-- Found FLANN: /usr/lib/aarch64-linux-gnu/libflann_cpp.so  \n'}
+[8.843128] (livox_ros_driver2) StdoutLine: {'line': b'-- FLANN found (include: /usr/include, lib: /usr/lib/aarch64-linux-gnu/libflann_cpp.so)\n'}
+[8.861599] (-) TimerEvent: {}
+[8.962412] (-) TimerEvent: {}
+[9.063264] (-) TimerEvent: {}
+[9.164145] (-) TimerEvent: {}
+[9.265063] (-) TimerEvent: {}
+[9.366038] (-) TimerEvent: {}
+[9.467014] (-) TimerEvent: {}
+[9.567920] (-) TimerEvent: {}
+[9.668871] (-) TimerEvent: {}
+[9.769807] (-) TimerEvent: {}
+[9.870729] (-) TimerEvent: {}
+[9.971672] (-) TimerEvent: {}
+[10.072566] (-) TimerEvent: {}
+[10.173452] (-) TimerEvent: {}
+[10.274340] (-) TimerEvent: {}
+[10.375228] (-) TimerEvent: {}
+[10.476170] (-) TimerEvent: {}
+[10.577114] (-) TimerEvent: {}
+[10.678066] (-) TimerEvent: {}
+[10.779037] (-) TimerEvent: {}
+[10.880009] (-) TimerEvent: {}
+[10.980950] (-) TimerEvent: {}
+[11.081882] (-) TimerEvent: {}
+[11.182804] (-) TimerEvent: {}
+[11.283782] (-) TimerEvent: {}
+[11.384744] (-) TimerEvent: {}
+[11.485614] (-) TimerEvent: {}
+[11.586680] (-) TimerEvent: {}
+[11.687668] (-) TimerEvent: {}
+[11.788642] (-) TimerEvent: {}
+[11.889600] (-) TimerEvent: {}
+[11.991103] (-) TimerEvent: {}
+[12.092093] (-) TimerEvent: {}
+[12.193020] (-) TimerEvent: {}
+[12.293985] (-) TimerEvent: {}
+[12.394924] (-) TimerEvent: {}
+[12.495836] (-) TimerEvent: {}
+[12.596779] (-) TimerEvent: {}
+[12.697734] (-) TimerEvent: {}
+[12.798749] (-) TimerEvent: {}
+[12.899712] (-) TimerEvent: {}
+[13.000756] (-) TimerEvent: {}
+[13.101717] (-) TimerEvent: {}
+[13.202621] (-) TimerEvent: {}
+[13.303538] (-) TimerEvent: {}
+[13.404487] (-) TimerEvent: {}
+[13.505428] (-) TimerEvent: {}
+[13.606426] (-) TimerEvent: {}
+[13.707275] (-) TimerEvent: {}
+[13.808164] (-) TimerEvent: {}
+[13.909120] (-) TimerEvent: {}
+[14.010063] (-) TimerEvent: {}
+[14.034916] (livox_ros_driver2) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[14.105456] (livox_ros_driver2) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.25\n'}
+[14.110197] (-) TimerEvent: {}
+[14.211066] (-) TimerEvent: {}
+[14.287889] (livox_ros_driver2) StdoutLine: {'line': b'-- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  \n'}
+[14.293832] (livox_ros_driver2) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[14.311269] (-) TimerEvent: {}
+[14.412190] (-) TimerEvent: {}
+[14.513131] (-) TimerEvent: {}
+[14.584215] (livox_ros_driver2) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[14.613307] (-) TimerEvent: {}
+[14.714180] (-) TimerEvent: {}
+[14.815073] (-) TimerEvent: {}
+[14.901838] (livox_ros_driver2) CommandEnded: {'returncode': -2}
+[14.915382] (-) TimerEvent: {}
+[14.961430] (livox_ros_driver2) JobEnded: {'identifier': 'livox_ros_driver2', 'rc': 'SIGINT'}
+[14.973891] (-) EventReactorShutdown: {}
