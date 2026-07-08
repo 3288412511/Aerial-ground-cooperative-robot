@@ -1,12 +1,12 @@
-# Air-Ground Collaborative Robot
+# 基于地瓜RDK的空地协同融合感知与自主排爆系统
 
-## Project Introduction
+## 项目介绍
 
-This project designs an air-ground collaborative fusion perception and autonomous explosive ordnance disposal system based on the D-Robotics RDK. The system adopts a collaborative model of “wide-area reconnaissance by UAVs, close-range verification by ground robots, and unified scheduling through the command and control terminal.” It integrates orthophoto generation, 3D point cloud mapping, target recognition, autonomous navigation, laser strike, and result verification into a complete closed-loop workflow.
+本作品设计了一套基于地瓜 RDK 的空地协同融合感知与自主排爆系统。系统采用“无人机广域侦察、地面机器人抵近复核、指控端统一调度”的协同模式，将正射影像生成、三维点云建图、目标识别、自主导航、激光打击和结果复核整合为完整闭环。
 
-## Environment Requirements
+## 环境要求
 
-- Ubuntu 22.04
+- ubuntu 22.04
 - ROS2 Humble
 - Qt5
 - RViz2 / rviz_common
