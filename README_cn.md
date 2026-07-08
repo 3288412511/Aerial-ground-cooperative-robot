@@ -18,7 +18,7 @@
 docker pull opendronemap/odm
 ```
 
-## 将图片（JPEG）放入名为“images”（例如/home/youruser/datasets/project/images）的文件夹中，运行 ODM：
+## 将图片放入名为“images”（例如/home/youruser/datasets/project/images）的文件夹中，运行 ODM：
 docker run -ti --rm -v /home/youruser/datasets:/datasets opendronemap/odm --project-path /datasets project
 
 ## 可以通过在命令中附加参数来传递：
