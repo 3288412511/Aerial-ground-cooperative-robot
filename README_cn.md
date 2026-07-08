@@ -11,23 +11,23 @@
 - Qt5
 - RViz2 / rviz_common
 
-
-## 安装并运行好docker后，可以使用终端拉取ODM容器
+## 正射影像图拼接
+### 安装并运行好docker后，可以使用终端拉取ODM容器
 
 ```bash
 docker pull opendronemap/odm
 ```
 
-## 将图片放入名为“images”（例如/home/youruser/datasets/project/images）的文件夹中，运行 ODM：
+### 将图片放入名为“images”（例如/home/youruser/datasets/project/images）的文件夹中，运行 ODM：
 docker run -ti --rm -v /home/youruser/datasets:/datasets opendronemap/odm --project-path /datasets project
 
-## 可以通过在命令中附加参数来传递：
+### 可以通过在命令中附加参数来传递：
 docker run -ti --rm -v /datasets:/datasets opendronemap/odm --project-path /datasets project [--additional --parameters --here]
 
-## 例如，要生成DSM并提高正射照片分辨率：
+### 例如，要生成DSM并提高正射照片分辨率：
 docker run -ti --rm -v /datasets:/datasets opendronemap/odm --project-path /datasets project --dsm --orthophoto-resolution 2
 
-## 拼图结果按以下方式整理：
+### 拼图结果按以下方式整理：
 |-- images/
     |-- img-1234.jpg
     |-- ...
@@ -43,7 +43,7 @@ docker run -ti --rm -v /datasets:/datasets opendronemap/odm --project-path /data
 |-- odm_orthophoto/
     |-- odm_orthophoto.tif          
 
-## 使用以下软件打开ODM生成的文件：
+### 使用以下软件打开ODM生成的文件：
  * .tif (GeoTIFF): [QGIS](http://www.qgis.org/)
  * .laz (Compressed LAS): [CloudCompare](https://www.cloudcompare.org/)
  * .obj (Wavefront OBJ), .ply (Stanford Triangle Format): [MeshLab](http://www.meshlab.net/)
