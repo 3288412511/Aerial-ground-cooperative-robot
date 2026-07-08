@@ -24,7 +24,7 @@ docker run -ti --rm -v /home/youruser/datasets:/datasets opendronemap/odm --proj
 ## 可以通过在命令中附加参数来传递：
 docker run -ti --rm -v /datasets:/datasets opendronemap/odm --project-path /datasets project [--additional --parameters --here]
 
-## 例如，要生成DSM（）并提高正射照片分辨率（--dsm--orthophoto-resolution 2）：
+## 例如，要生成DSM并提高正射照片分辨率：
 docker run -ti --rm -v /datasets:/datasets opendronemap/odm --project-path /datasets project --dsm --orthophoto-resolution 2
 
 ## 拼图结果按以下方式整理：
